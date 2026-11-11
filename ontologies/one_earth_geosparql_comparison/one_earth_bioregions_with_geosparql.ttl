@@ -1,0 +1,18 @@
+# Open this wrapper in Protege to load both local modules.
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.in2use.com/one_earth_bioregions_with_geosparql> a owl:Ontology ;
+    rdfs:label "one_earth_bioregions_with_geosparql"@en ;
+    dcterms:created "2026-11-10"^^xsd:date ;
+    dcterms:creator <https://orcid.org/0000-0002-8824-9577> ;
+    dcterms:description "Comparison entry point that imports the unchanged One Earth bioregions ontology and its optional GeoSPARQL module. Open the base alone for editing and reasoning without geometry; open this wrapper to load both modules."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by-nc/4.0/> ;
+    dcterms:title "one_earth_bioregions_with_geosparql"@en ;
+    rdfs:comment "Use the accompanying catalog-v001.xml to resolve both imports to sibling local Turtle files in Protege. This wrapper contains no copy of the base or the geometry data. Its ontology IRI is distinct from those of both imported modules."@en ;
+    owl:imports <https://www.in2use.com/one_earth_bioregions>,
+        <https://www.in2use.com/one_earth_geosparql> ;
+    owl:versionInfo "0.1.0 — first GeoSPARQL comparison release"@en .
+
