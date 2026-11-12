@@ -1,33 +1,28 @@
-# One Earth Solutions — draft 0.2.0
+# One Earth Solutions — draft 0.2.2
 
-This draft models solutions as **kinds of activity** and connects actual activity instances to the regions, ecosystems, species, and agents they concern. It is Common Action's process-oriented interpretation of [One Earth's Solutions Framework](https://www.oneearth.org/solutions/), with original source headings and links retained. It is not an official One Earth ontology.
+This ontology contains the Solutions process model and directly imports the three files in the sibling Bioregions directory. It is the entry point for the complete model in Protégé. There are no active integration-wrapper ontologies.
 
-## Open in Protégé
+## Imports and local use
 
-1. Extract the ZIP into a **new folder**. Its files sit directly in that folder; the archive has no extra directory layer.
-2. Keep the two Turtle files and `catalog-v001.xml` together.
-3. Open `one_earth_solutions.ttl`. The catalog resolves its canonical Bioregions import to the accompanying local file.
-4. Start Pellet. Under the imported `prov:Activity` / SULO `Process` hierarchy, inspect `Climate_Solution` and its subclasses. The `Example_...` individuals demonstrate the connections.
+The three direct imports use raw GitHub URLs for:
 
-The Solutions import declaration is the ontology IRI `https://www.in2use.com/one_earth_bioregions`. It contains no machine-specific path. The catalog supplies the local resolution; the canonical IRI remains in the ontology. Without the catalog, remote loading depends on that IRI resolving to the ontology document.
+- `../one_earth_bioregions/one_earth_bioregions.ttl`
+- `../one_earth_bioregions/one_earth_geosparql.ttl`
+- `../one_earth_bioregions/one_earth_what3words_examples.ttl`
 
-The included Bioregions file is an unchanged snapshot from the public GitHub repository, retrieved 2026-11-11. It already includes the Big_Bro foundation (SULO and PROV terms), so Solutions does not copy those definitions or import another Big_Bro version. It does not import the full process_model ontology.
+Keep both directories under `ontologies`, retain their local `catalog-v001.xml` files, and open `one_earth_solutions.ttl`. The catalogs resolve the raw import URLs to those same local files. They contain no Archive or wrapper mappings. There is no Bioregions copy in this Solutions directory and no root-level catalog is required for this layout.
 
-If your own Bioregions file contains newer changes, use that version instead of overwriting it with this snapshot. Keep its canonical ontology IRI, and adjust the catalog's relative filename if necessary.
+The Solutions ontology IRI remains `https://www.in2use.com/one_earth_solutions`; all existing entity IRIs remain unchanged. Version 0.2.2 changes the imports and their documentation; the process class model is unchanged from 0.2.0. Geometry and what3words are now included when opening Solutions through its imports.
 
-## Files and imports
+## AllegroGraph loading convention
 
-| File | Purpose |
-| --- | --- |
-| `one_earth_solutions.ttl` | New process classes, properties, themes, levers, and demonstration data. Imports Bioregions. |
-| `one_earth_bioregions.ttl` | Unchanged imported geography and Big_Bro foundation. |
-| `catalog-v001.xml` | Maps canonical ontology IRIs to the local Turtle files. |
-| `demo_queries.rq` | Five SPARQL SELECT examples; run each separately with the prefixes. |
-| `source_class_mapping.csv` | Exact mapping of 91 published headings to their process-class IRIs. |
-| `validation.json` | Results of structural and reasoning checks. |
-| `LICENSE` | Existing project license: CC BY-NC 4.0. |
+For ordinary RDF loading, explicitly load each required file into the same repository. The `owl:imports` triples record dependencies; they do not themselves fetch the imported files in the normal loading workflow.
 
-**The included base Bioregions snapshot does not contain WKT geometries or what3words examples.** Keep using the existing geometry and what3words modules when needed. Their absence does not prevent the process, target, and geographical hierarchy examples from working. No additional integration ontology is required for this draft.
+Use this order for clarity: base Bioregions, GeoSPARQL, what3words, then Solutions. This is an organizational convention, not an RDF requirement: referenced IRIs can be stored before their definitions are loaded. Run the Materializer after all required files are loaded. If you add further axioms or data later, materialize again as appropriate. GeoSPARQL indexing is a separate operation.
+
+The raw import document URLs and the ontology/entity IRIs serve different purposes. Matching entity IRIs allow the loaded triples to connect; AllegroGraph does not require an ontology header to exist before accepting those references. Protégé's catalog does not configure AllegroGraph.
+
+Supporting files `demo_queries.rq`, `source_class_mapping.csv`, and `LICENSE` are unchanged. `validation.json` records the model and direct-import checks.
 
 ## What changed from 0.1
 
@@ -78,7 +73,7 @@ Coho Salmon is a real species-level taxon, with scientific name `Oncorhynchus ki
 
 ## AllegroGraph and GraphTalker
 
-For a new repository, load both Turtle files. Loading an `owl:imports` triple alone should not be assumed to fetch its target in AllegroGraph. If the repository already contains the same Bioregions model, load only the new Solutions file. Remove the old Solutions 0.1 draft before loading its replacement; do not delete unrelated geography or geometry data.
+For a new repository, load the base Bioregions, GeoSPARQL, what3words, and Solutions files into the same repository. A convenient convention is to load them in that order. Loading an `owl:imports` triple alone should not be assumed to fetch its target in AllegroGraph. If the repository already contains the same base, geometry, and what3words data, load only the revised Solutions file. Remove the old Solutions 0.1 draft before loading its replacement; do not delete unrelated geography or geometry data.
 
 Materialize the required OWL class and property inferences as in your existing workflow. GeoSPARQL index creation is a separate operation and is not needed for these examples. The SPARQL examples in `demo_queries.rq` use paths where needed so they also work on asserted data.
 
@@ -98,11 +93,11 @@ Membership and hierarchy follow the [main framework](https://www.oneearth.org/so
 
 The Renewable Power category page additionally lists Advanced Nuclear, absent from the main framework. This draft retains the main framework's 76 pathways pending source reconciliation. One Earth's Climate Refugia heading is interpreted in its carbon-storage and climate-stabilization sense. Shared geothermal, hydrogen, and biomass source URLs do not imply equivalence between their power, heat, and fuel uses.
 
-Base snapshot: [one_earth_bioregions.ttl on GitHub](https://github.com/mdebellis/One_Earth/blob/main/ontologies/one_earth_bioregions.ttl).
+Active base: [one_earth_bioregions.ttl on GitHub](https://github.com/mdebellis/One_Earth/blob/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl).
 
 ## Validation
 
-Validation uses the union of the new Solutions model and the unchanged Bioregions snapshot. Temporary validation files resolve the import locally; the distributed Solutions file retains its canonical import.
+Validation uses the union of Solutions, base Bioregions, GeoSPARQL, and what3words. Validation resolves the raw import URL to the intended local file; the distributed Solutions file retains the raw GitHub import declaration.
 
 Checks cover Turtle parsing; framework counts; names and English labels; inverse declarations; imported-IRI reuse; absence of class/individual punning; Pellet consistency and classification; and expected inferences for process types, subprocesses, responsible agents, participants, and the geographical hierarchy. Negative checks confirm that a target is not inferred to be a location or participant, and that the example ecosystem does not become a process. See `validation.json` for the actual results.
 

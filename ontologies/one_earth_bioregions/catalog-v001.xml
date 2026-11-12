@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <!-- Four active data/model files only; no wrappers or Archive discovery. -->
   <uri name="https://www.in2use.com/one_earth_bioregions" uri="one_earth_bioregions.ttl"/>
+  <uri name="https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl" uri="one_earth_bioregions.ttl"/>
   <uri name="https://www.in2use.com/one_earth_geosparql" uri="one_earth_geosparql.ttl"/>
-  <uri name="https://www.in2use.com/one_earth_bioregions_with_geosparql" uri="one_earth_bioregions_with_geosparql.ttl"/>
+  <uri name="https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_geosparql.ttl" uri="one_earth_geosparql.ttl"/>
+  <uri name="https://www.in2use.com/one_earth_what3words_examples" uri="one_earth_what3words_examples.ttl"/>
+  <uri name="https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_what3words_examples.ttl" uri="one_earth_what3words_examples.ttl"/>
+  <uri name="https://www.in2use.com/one_earth_solutions" uri="../one_earth_solutions/one_earth_solutions.ttl"/>
+  <uri name="https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_solutions/one_earth_solutions.ttl" uri="../one_earth_solutions/one_earth_solutions.ttl"/>
 </catalog>

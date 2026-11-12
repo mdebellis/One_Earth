@@ -1,27 +1,26 @@
-# One Earth: optional GeoSPARQL module
+# One Earth Bioregions — three active modules
 
-This package lets you compare your existing ontology with the same ontology plus bioregion boundary geometry. It contains three Turtle ontologies and a small local import catalog.
+This directory maintains one active copy of each module:
 
-| File | Purpose | Approximate size |
-| --- | --- | ---: |
-| `one_earth_bioregions.ttl` | Your current GitHub ontology, copied byte for byte | 1.62 MB |
-| `one_earth_geosparql.ttl` | GeoSPARQL schema alignment and all 185 bioregion geometries | 20.90 MB |
-| `one_earth_bioregions_with_geosparql.ttl` | Small wrapper importing both ontologies | 1.3 KB |
+| File | Contents |
+| --- | --- |
+| `one_earth_bioregions.ttl` | Base geography and Big_Bro foundation. |
+| `one_earth_geosparql.ttl` | GeoSPARQL alignment and 185 geometry records. |
+| `one_earth_what3words_examples.ttl` | Four published examples, with the original 49 example/property triples preserved and an ontology header added. |
 
-The wrapper has its own ontology IRI. It contains no duplicate copy of the base or geometry data. The base file has no imports, so it can still be opened independently.
+The sibling Solutions ontology directly imports these three files using their raw GitHub URLs. Open Solutions in Protégé to load everything. The what3words module also imports the base file, using exactly the same URL; both references resolve to the same ontology.
 
-## Compare in Protégé
+The existing `one_earth_bioregions_integrated.ttl` and `one_earth_bioregions_with_geosparql.ttl` belong in Archive. No replacement wrapper is needed. Preserve their paths beneath Archive rather than leaving active duplicates.
 
-1. Extract the ZIP to a new folder. Keep all three Turtle files and `catalog-v001.xml` together.
-2. Open `one_earth_bioregions.ttl`. Run Pellet and observe loading, classification, and browsing behavior.
-3. Close that Protégé session, then open `one_earth_bioregions_with_geosparql.ttl` in a fresh session. Confirm that the imports panel shows both modules successfully loaded, and run the same Pellet tasks.
-4. Use the same reasoner settings for both comparisons. Fresh sessions help avoid comparing a cold load with already cached data.
+Keep this directory's catalog and the sibling Solutions catalog. They map the four active ontology identities and their raw URLs to the actual local files. They contain no recursive Archive discovery or wrapper mappings. Base and geometry contents are unchanged.
 
-`catalog-v001.xml` maps the canonical ontology IRIs to files in this folder. This is Protégé configuration, not a fourth ontology. There is no need to publish the new ontology IRIs before trying the package locally. Do not remove the catalog or rename its target files independently. If Protégé prompts for an import location, select the corresponding local Turtle file.
+## AllegroGraph
 
-Imported axioms normally appear as imported/read-only content while the wrapper is active. Select the base or extension as the active ontology when you intend to edit that module. Opening the base alone never loads the extension.
+Explicitly load the base, GeoSPARQL, what3words, and Solutions files into the same repository. Loading the dependencies first is a useful convention, but RDF references do not require their definitions to have been loaded earlier. Wait until all required data and axioms are present before running the Materializer and testing the combined model. The catalog is for local ontology loading in Protégé, not AllegroGraph.
 
-If you make further changes to the base in your main working folder, you can replace this package's copy with that newer file, keeping the filename and ontology IRI. Existing bioregion IRIs are the links between the files.
+## Original geometry description and validation
+
+The following describes the existing geometry content and its earlier validation. Current direct-import checks are recorded in the sibling Solutions `validation.json`.
 
 ## What the extension adds
 
@@ -47,12 +46,6 @@ The module preserves all source coordinate values and the Polygon/MultiPolygon s
 - Pellet accepts the WKT datatype in this test but does not validate polygon syntax or compute spatial relationships. Geometry validation was performed separately.
 - AllegroGraph spatial execution, indexing, and global edge-case behavior have not been tested against your server. Local geometry validity does not by itself establish boundary accuracy or that every spatial engine interprets global shapes identically.
 
-## AllegroGraph
-
-For a later AllegroGraph test, load `one_earth_bioregions.ttl` and `one_earth_geosparql.ttl` into the same repository/query dataset. Loading the small wrapper alone should not be assumed to load OWL imports automatically. Protégé's local catalog is not an AllegroGraph configuration file.
-
-The geometry data use standard GeoSPARQL vocabulary. No AllegroGraph-specific index triples or spatial relationship results are precomputed in these files.
-
 ## Sources and ontology identities
 
 Base source: [mdebellis/One_Earth](https://github.com/mdebellis/One_Earth/blob/196cfe58775f5b6475886f8a1b28ec62ad33858a/ontologies/one_earth_bioregions.ttl), commit `196cfe58775f5b6475886f8a1b28ec62ad33858a`.
@@ -67,6 +60,6 @@ Schema reference: [OGC GeoSPARQL 1.1](https://docs.ogc.org/is/22-047r1/22-047r1.
 | --- | --- |
 | Base | `https://www.in2use.com/one_earth_bioregions` |
 | Optional extension | `https://www.in2use.com/one_earth_geosparql` |
-| Combined wrapper | `https://www.in2use.com/one_earth_bioregions_with_geosparql` |
+| what3words examples | `https://www.in2use.com/one_earth_what3words_examples` |
 
 The new One Earth-derived module follows the project's CC BY-NC 4.0 license. Existing base and reused vocabulary license/provenance notices retain their scope. Creation date: November 10, 2026, America/Los_Angeles.

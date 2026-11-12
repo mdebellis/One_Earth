@@ -1,7 +1,7 @@
 # Four published what3words examples for the One Earth ontology.
-# Add these triples to one_earth_bioregions.ttl or load this file into the
-# same AllegroGraph repository as the existing ontology.
-# This is an additive Turtle fragment, not a replacement ontology.
+# Named additive module. Imports the base Bioregions ontology.
+# Open the Solutions ontology in Protege to load the full combined model.
+# In AllegroGraph, load this file alongside the base and geometry modules.
 #
 # Sources checked: 2026-11-10.
 # Each individual denotes a small addressed area at the named place,
@@ -26,6 +26,18 @@
 @prefix prov:    <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+
+
+<https://www.in2use.com/one_earth_what3words_examples> a owl:Ontology ;
+    rdfs:label "one earth what3words examples"@en ;
+    dcterms:title "one_earth_what3words_examples"@en ;
+    dcterms:created "2026-11-12"^^xsd:date ;
+    dcterms:modified "2026-11-12"^^xsd:date ;
+    dcterms:description "A named module preserving the four published what3words examples and their existing One Earth entity IRIs. The examples were prepared on 2026-11-10; this ontology header was added on 2026-11-12 for modular imports."@en ;
+    dcterms:rights "Existing source and what3words terms notices retain their scope. This module does not grant a license to third-party address data."@en ;
+    rdfs:comment "This module adds no address-coordinate conversions. The base ontology import supplies the reused classes and region definitions. All original example and property triples are unchanged."@en ;
+    owl:imports <https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl> ;
+    owl:versionInfo "0.1.0 — named module for existing examples"@en .
 
 # The identifier is stored as an xsd:string; human-readable labels use @en.
 # This property is deliberately not functional.

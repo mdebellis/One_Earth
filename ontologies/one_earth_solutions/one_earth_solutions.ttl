@@ -1,5 +1,6 @@
-# one_earth_solutions 0.2.0 - Common Action process-model draft
-# Imports: https://www.in2use.com/one_earth_bioregions
+# one_earth_solutions 0.2.2 - Common Action process-model draft
+# Direct imports: base Bioregions, GeoSPARQL, and what3words modules.
+# All imports use raw GitHub URLs in the sibling Bioregions directory.
 # Use the supplied catalog-v001.xml for local resolution in Protege.
 # 3 pillar classes, 12 subpillar classes, 76 solution-pathway classes.
 # Includes six flagged fictional demonstration individuals.
@@ -1449,11 +1450,13 @@ oes:Solution_Level a owl:NamedIndividual,
     dcterms:source <https://www.oneearth.org/categories/>,
         <https://www.oneearth.org/solutions/> ;
     dcterms:title "one_earth_solutions"@en ;
-    rdfs:comment "Imports the Bioregions ontology, which embeds the reused Big Bro, SULO, and PROV foundation. It does not import the full process model or the optional geometry and what3words modules."@en,
+    rdfs:comment "Directly imports the Bioregions ontology, which embeds Big Bro, SULO, and PROV, together with the GeoSPARQL and what3words modules. No separate integration wrapper or full process-model ontology is required."@en,
         "The framework hierarchy denotes kinds of activity, not subprocess composition. Classes may overlap. A target denotes intended focus and does not assert successful impact, physical participation, location, or modification of an entire region. Six fictional demonstration individuals are flagged with is_illustrative_example."@en,
         "This draft interprets the 3 pillars, 12 subpillars, and 76 solution pathways as OWL classes of activities. The process interpretation and concise definitions are Common Action modeling choices, not claims that One Earth publishes an OWL process ontology. Original headings and source URLs are retained."@en ;
-    owl:imports <https://www.in2use.com/one_earth_bioregions> ;
-    owl:versionInfo "0.2.0 - process model draft for review"@en ;
+    owl:imports <https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl>,
+        <https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_geosparql.ttl>,
+        <https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_what3words_examples.ttl> ;
+    owl:versionInfo "0.2.2 - direct imports of Bioregions, GeoSPARQL, and what3words"@en ;
     skos:definition "A Common Action ontology of climate solution activities, based on One Earth’s framework and integrated with the One Earth Bioregions ontology and its Big Bro foundation."@en ;
     skos:editorialNote "Source hierarchy reviewed on 2026-11-11. The Renewable Power category page additionally lists Advanced Nuclear, absent from the main framework page. The 76 pathways follow the main framework pending source reconciliation."@en ;
     skos:historyNote "Version 0.2 replaces the standalone category-individual draft (0.1). Load this version instead of merging it with 0.1; some former category IRIs now identify classes and others have action-oriented replacements. No class/individual punning is intended."@en .
