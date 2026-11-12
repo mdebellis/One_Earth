@@ -2,6 +2,18 @@
 
 This ontology contains the Solutions process model and directly imports the three files in the sibling Bioregions directory. It is the entry point for the complete model in Protégé. There are no active integration-wrapper ontologies.
 
+## Install this complete package
+
+This ZIP supplies every active ontology and supporting file. It replaces the earlier incremental update ZIPs and assumes an empty active `ontologies` directory. Archive is kept separately and is not used to resolve imports.
+
+1. Close Protégé and move your previous active files and folders into Archive, preserving the relative paths as you planned.
+2. Extract this ZIP **directly into the existing `ontologies` directory**. Its top level contains exactly `one_earth_bioregions` and `one_earth_solutions`—no extra outer `ontologies` or package folder. If Windows extracts into a folder named after the ZIP, move the two directories inside it into your existing `ontologies` directory.
+3. Keep the two directories beside each other. No files from an earlier package need to be copied back.
+4. Open `one_earth_solutions/one_earth_solutions.ttl` in Protégé. Its three direct imports load the base Bioregions, GeoSPARQL, and what3words files through the included local catalogs.
+5. Run Pellet as usual, then review and publish the complete directory replacement using GitHub Desktop.
+
+The catalogs allow local loading before publication. Raw GitHub imports use the final active directory paths; remote users receive the new versions after you commit and push. All ontology and entity IRIs remain as in the agreed direct-import model.
+
 ## Imports and local use
 
 The three direct imports use raw GitHub URLs for:
@@ -22,7 +34,7 @@ Use this order for clarity: base Bioregions, GeoSPARQL, what3words, then Solutio
 
 The raw import document URLs and the ontology/entity IRIs serve different purposes. Matching entity IRIs allow the loaded triples to connect; AllegroGraph does not require an ontology header to exist before accepting those references. Protégé's catalog does not configure AllegroGraph.
 
-Supporting files `demo_queries.rq`, `source_class_mapping.csv`, and `LICENSE` are unchanged. `validation.json` records the model and direct-import checks.
+Supporting files `demo_queries.rq`, `source_class_mapping.csv`, and `LICENSE` are unchanged. `validation.json` records the model and direct-import checks; `release_validation.json` records validation of this complete package after extraction into an empty directory.
 
 ## What changed from 0.1
 

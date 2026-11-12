@@ -10,9 +10,9 @@ This directory maintains one active copy of each module:
 
 The sibling Solutions ontology directly imports these three files using their raw GitHub URLs. Open Solutions in Protégé to load everything. The what3words module also imports the base file, using exactly the same URL; both references resolve to the same ontology.
 
-The existing `one_earth_bioregions_integrated.ttl` and `one_earth_bioregions_with_geosparql.ttl` belong in Archive. No replacement wrapper is needed. Preserve their paths beneath Archive rather than leaving active duplicates.
+This complete package contains no wrapper files or flattened integrated export. Your previous versions can remain in Archive. All three data modules needed by Solutions are included here.
 
-Keep this directory's catalog and the sibling Solutions catalog. They map the four active ontology identities and their raw URLs to the actual local files. They contain no recursive Archive discovery or wrapper mappings. Base and geometry contents are unchanged.
+For installation, follow the complete-package instructions at the start of the sibling Solutions README. Keep this directory's catalog and the sibling Solutions catalog. They map the four active ontology identities and their raw URLs to the actual local files. They contain no recursive Archive discovery or wrapper mappings. Base and geometry contents are unchanged.
 
 ## AllegroGraph
 
@@ -20,7 +20,7 @@ Explicitly load the base, GeoSPARQL, what3words, and Solutions files into the sa
 
 ## Original geometry description and validation
 
-The following describes the existing geometry content and its earlier validation. Current direct-import checks are recorded in the sibling Solutions `validation.json`.
+The following describes the existing geometry content and its earlier validation. Current direct-import checks are recorded in the sibling Solutions `validation.json`; complete-package checks are in its `release_validation.json`.
 
 ## What the extension adds
 
@@ -44,7 +44,7 @@ The module preserves all source coordinate values and the Polygon/MultiPolygon s
 - Both the base and the combined graph passed local Pellet consistency checking, classification, realization, and unsatisfiable-class checks. No unsatisfiable named classes were found.
 - Those reasoner checks used Owlready2's bundled `pellet-2.3.1.jar` with the OWLAPIv3 loader and Java 21. They are not tests of your exact Protégé/Pellet installation and are not GUI performance benchmarks.
 - Pellet accepts the WKT datatype in this test but does not validate polygon syntax or compute spatial relationships. Geometry validation was performed separately.
-- AllegroGraph spatial execution, indexing, and global edge-case behavior have not been tested against your server. Local geometry validity does not by itself establish boundary accuracy or that every spatial engine interprets global shapes identically.
+- These package checks do not validate AllegroGraph indexing or global edge-case behavior. Earlier repository tests demonstrated working spatial functions; the previously observed geohash query issue remains separate. Local geometry validity does not by itself establish boundary accuracy or that every spatial engine interprets global shapes identically.
 
 ## Sources and ontology identities
 

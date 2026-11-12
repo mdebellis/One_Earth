@@ -1,0 +1,154 @@
+{
+  "release": "Complete active ontologies, direct imports",
+  "date": "2026-11-12",
+  "github_source_commit": "a854e283bf6b3aace7fada40538a41067e6a14b2",
+  "checks_passed": 52,
+  "checks": [
+    "Exactly two directories at archive root",
+    "Exactly four active Turtle files",
+    "No wrappers or embedded archives",
+    "Single ontology identity one_earth_bioregions/one_earth_bioregions.ttl",
+    "Single ontology identity one_earth_bioregions/one_earth_geosparql.ttl",
+    "Single ontology identity one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Single ontology identity one_earth_solutions/one_earth_solutions.ttl",
+    "Unique ontology identities",
+    "Explicit catalog entries only one_earth_bioregions",
+    "Catalog resolves one_earth_bioregions https://www.in2use.com/one_earth_bioregions",
+    "Catalog resolves one_earth_bioregions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl",
+    "Catalog resolves one_earth_bioregions https://www.in2use.com/one_earth_geosparql",
+    "Catalog resolves one_earth_bioregions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_geosparql.ttl",
+    "Catalog resolves one_earth_bioregions https://www.in2use.com/one_earth_what3words_examples",
+    "Catalog resolves one_earth_bioregions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Catalog resolves one_earth_bioregions https://www.in2use.com/one_earth_solutions",
+    "Catalog resolves one_earth_bioregions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_solutions/one_earth_solutions.ttl",
+    "Explicit catalog entries only one_earth_solutions",
+    "Catalog resolves one_earth_solutions https://www.in2use.com/one_earth_bioregions",
+    "Catalog resolves one_earth_solutions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl",
+    "Catalog resolves one_earth_solutions https://www.in2use.com/one_earth_geosparql",
+    "Catalog resolves one_earth_solutions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_geosparql.ttl",
+    "Catalog resolves one_earth_solutions https://www.in2use.com/one_earth_what3words_examples",
+    "Catalog resolves one_earth_solutions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Catalog resolves one_earth_solutions https://www.in2use.com/one_earth_solutions",
+    "Catalog resolves one_earth_solutions https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_solutions/one_earth_solutions.ttl",
+    "Raw active import https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl",
+    "Import file exists one_earth_bioregions/one_earth_bioregions.ttl",
+    "Raw active import https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_geosparql.ttl",
+    "Import file exists one_earth_bioregions/one_earth_geosparql.ttl",
+    "Raw active import https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Import file exists one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Raw active import https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl",
+    "Import file exists one_earth_bioregions/one_earth_bioregions.ttl",
+    "Solutions loads all four and no other ontologies",
+    "Three direct Solutions imports",
+    "Geography count Realm",
+    "Geography count Subrealm",
+    "Geography count Bioregion",
+    "Geography count Ecoregion",
+    "Geography count Biome_Type",
+    "185 geometries",
+    "Four what3words examples",
+    "Framework count Pillar_Level",
+    "Framework count Subpillar_Level",
+    "Framework count Solution_Level",
+    "Five example queries have expected results",
+    "Agreed ontology bytes preserved one_earth_bioregions/one_earth_bioregions.ttl",
+    "Agreed ontology bytes preserved one_earth_bioregions/one_earth_geosparql.ttl",
+    "Agreed ontology bytes preserved one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "Agreed ontology bytes preserved one_earth_solutions/one_earth_solutions.ttl",
+    "Pellet combined consistency"
+  ],
+  "fresh_empty_directory_test": true,
+  "solutions_import_closure": [
+    "one_earth_bioregions/one_earth_bioregions.ttl",
+    "one_earth_bioregions/one_earth_geosparql.ttl",
+    "one_earth_bioregions/one_earth_what3words_examples.ttl",
+    "one_earth_solutions/one_earth_solutions.ttl"
+  ],
+  "ontology_iris": {
+    "one_earth_bioregions/one_earth_bioregions.ttl": "https://www.in2use.com/one_earth_bioregions",
+    "one_earth_bioregions/one_earth_geosparql.ttl": "https://www.in2use.com/one_earth_geosparql",
+    "one_earth_bioregions/one_earth_what3words_examples.ttl": "https://www.in2use.com/one_earth_what3words_examples",
+    "one_earth_solutions/one_earth_solutions.ttl": "https://www.in2use.com/one_earth_solutions"
+  },
+  "counts": {
+    "Realm": 14,
+    "Subrealm": 53,
+    "Bioregion": 185,
+    "Ecoregion": 844,
+    "Biome_Type": 14,
+    "geometries": 185,
+    "what3words_examples": 4,
+    "Pillar_Level": 3,
+    "Subpillar_Level": 12,
+    "Solution_Level": 76
+  },
+  "example_query_row_counts": [
+    76,
+    2,
+    1,
+    2,
+    3
+  ],
+  "pellet": "Consistent: Yes",
+  "files": {
+    "one_earth_bioregions/LICENSE": {
+      "bytes": 19347,
+      "sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0"
+    },
+    "one_earth_bioregions/README.md": {
+      "bytes": 5827,
+      "sha256": "e2bd44ffd0f4ad4e65073f4f6d329efe4528b2a1b232eaea29b74cb313e78890"
+    },
+    "one_earth_bioregions/catalog-v001.xml": {
+      "bytes": 1297,
+      "sha256": "07aba8ec3be22390650b4b6c4a05d7539d0023f4668cb824fc195ecaa39c765b"
+    },
+    "one_earth_bioregions/one_earth_bioregions.ttl": {
+      "bytes": 1623654,
+      "sha256": "09dafaa4a4c4d864544bcd3e56eca31d6b495931653c339d6aba5152dc7d2993"
+    },
+    "one_earth_bioregions/one_earth_geosparql.ttl": {
+      "bytes": 20900446,
+      "sha256": "dc207945c235525d6bafebdbb5dfa57a7bb2870d5389d8b3f492b808e327b1a7"
+    },
+    "one_earth_bioregions/one_earth_what3words_examples.ttl": {
+      "bytes": 7218,
+      "sha256": "d9404034e579bb75057c85707b52595bfdffdde3e3c357a4097d831554f2eb4b"
+    },
+    "one_earth_solutions/LICENSE": {
+      "bytes": 19347,
+      "sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0"
+    },
+    "one_earth_solutions/README.md": {
+      "bytes": 12859,
+      "sha256": "bf60c668493940ffefb011a0e0c1c1b63c52cc974fb364c2fb83b320d226603b"
+    },
+    "one_earth_solutions/catalog-v001.xml": {
+      "bytes": 1395,
+      "sha256": "5a75f7f06b41c6f2cbc1dabcea38138bceb484b815c1d60c77fd649edf8d05c9"
+    },
+    "one_earth_solutions/demo_queries.rq": {
+      "bytes": 2396,
+      "sha256": "012350a41c5d04fdc6ca5b01ec4f9f1d2850c0229202cbc506f6a9341ba9477c"
+    },
+    "one_earth_solutions/one_earth_solutions.ttl": {
+      "bytes": 84143,
+      "sha256": "872e7f1a9789f51c132133d4728b6a925c2f252a858dfd8ff21ad0fa96f2c637"
+    },
+    "one_earth_solutions/source_class_mapping.csv": {
+      "bytes": 20159,
+      "sha256": "812030737e1b3f81ac8fe500be4e774970d2ed39786f7716aca60e2e628f8a95"
+    },
+    "one_earth_solutions/validation.json": {
+      "bytes": 22303,
+      "sha256": "49ad32d1bd2c2734f4ddcd2d643f5329f660b11f12e00810dc3c1782fa5759d9"
+    }
+  },
+  "limitations": [
+    "No Protege GUI automation or remote GitHub publication performed.",
+    "The local import mappings were checked against a fresh extraction. Raw GitHub imports serve the revised module headers only after the replacement is pushed."
+  ],
+  "notes": [
+    "After the extracted-package tests, one README sentence was clarified to acknowledge the earlier AllegroGraph tests. All tested ontology bytes are unchanged."
+  ]
+}
