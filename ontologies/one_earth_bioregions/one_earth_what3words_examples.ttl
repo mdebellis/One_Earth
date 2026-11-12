@@ -1,122 +1,108 @@
-# Four published what3words examples for the One Earth ontology.
-# Named additive module. Imports the base Bioregions ontology.
-# Open the Solutions ontology in Protege to load the full combined model.
-# In AllegroGraph, load this file alongside the base and geometry modules.
-#
-# Sources checked: 2026-11-10.
-# Each individual denotes a small addressed area at the named place,
-# not the entire building, park, or bioregion.
-#
-# Bioregion assignments were checked against the existing One Earth 2023
-# boundaries using the documented places' surrounding areas. They are
-# curated assignments, not results of decoding the what3words addresses.
-# No what3words API was used. No address-coordinate pairs are included.
-# The address strings are reproduced from the cited public sources;
-# their inclusion does not grant an open licence to what3words data.
-# what3words terms: https://what3words.com/terms
-#
-# Existing classes, properties and bioregion IRIs are reused unchanged.
-# Inverse has_region_part assertions are included for immediate browsing
-# before running a reasoner or the AllegroGraph Materializer.
-
-@prefix oeb:     <https://www.in2use.com/one_earth_bioregions/> .
-@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
-@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix : <https://www.in2use.com/one_earth_what3words_examples#> .
+@prefix oeb: <https://www.in2use.com/one_earth_bioregions/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@base <https://www.in2use.com/one_earth_what3words_examples> .
+
+<https://www.in2use.com/one_earth_what3words_examples> rdf:type owl:Ontology ;
+                                                        owl:imports <https://www.in2use.com/one_earth_bioregions> ;
+                                                        dcterms:created "2026-11-12"^^xsd:date ;
+                                                        dcterms:description "A named module preserving the four published what3words examples and their existing One Earth entity IRIs. The examples were prepared on 2026-11-10; this ontology header was added on 2026-11-12 for modular imports."@en ;
+                                                        dcterms:modified "2026-11-12"^^xsd:date ;
+                                                        dcterms:rights "Existing source and what3words terms notices retain their scope. This module does not grant a license to third-party address data."@en ;
+                                                        dcterms:title "one_earth_what3words_examples"@en ;
+                                                        rdfs:comment "This module adds no address-coordinate conversions. The base ontology import supplies the reused classes and region definitions. All original example and property triples are unchanged."@en ;
+                                                        rdfs:label "one earth what3words examples"@en ;
+                                                        owl:versionInfo "0.1.0 — named module for existing examples"@en .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://www.in2use.com/one_earth_bioregions/what3words_address
+oeb:what3words_address rdf:type owl:DatatypeProperty ;
+                       rdfs:domain prov:Location ;
+                       rdfs:range xsd:string ;
+                       dcterms:source <https://what3words.com/about> ;
+                       rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> ;
+                       rdfs:label "what3words address"@en ;
+                       rdfs:seeAlso <https://what3words.com/terms> ;
+                       skos:definition "A three-word address assigned by what3words to a small geographical area, recorded in word.word.word format without the display prefix ///."@en ;
+                       skos:scopeNote "The examples below use English addresses. This property does not assert a coordinate conversion, a navigation instruction, or an address for an entire bioregion."@en .
 
 
-<https://www.in2use.com/one_earth_what3words_examples> a owl:Ontology ;
-    rdfs:label "one earth what3words examples"@en ;
-    dcterms:title "one_earth_what3words_examples"@en ;
-    dcterms:created "2026-11-12"^^xsd:date ;
-    dcterms:modified "2026-11-12"^^xsd:date ;
-    dcterms:description "A named module preserving the four published what3words examples and their existing One Earth entity IRIs. The examples were prepared on 2026-11-10; this ontology header was added on 2026-11-12 for modular imports."@en ;
-    dcterms:rights "Existing source and what3words terms notices retain their scope. This module does not grant a license to third-party address data."@en ;
-    rdfs:comment "This module adds no address-coordinate conversions. The base ontology import supplies the reused classes and region definitions. All original example and property triples are unchanged."@en ;
-    owl:imports <https://raw.githubusercontent.com/mdebellis/One_Earth/main/ontologies/one_earth_bioregions/one_earth_bioregions.ttl> ;
-    owl:versionInfo "0.1.0 — named module for existing examples"@en .
+#################################################################
+#    Individuals
+#################################################################
 
-# The identifier is stored as an xsd:string; human-readable labels use @en.
-# This property is deliberately not functional.
+###  https://www.in2use.com/one_earth_bioregions/East_Australian_Temperate_Forests_And_Mountain_Shrublands
+oeb:East_Australian_Temperate_Forests_And_Mountain_Shrublands oeb:has_region_part oeb:North_Head_Sanctuary_Visitor_Centre_Location .
 
-oeb:what3words_address
-    a owl:DatatypeProperty ;
-    rdfs:label "what3words address"@en ;
-    rdfs:domain prov:Location ;
-    rdfs:range xsd:string ;
-    skos:definition
-        "A three-word address assigned by what3words to a small geographical area, recorded in word.word.word format without the display prefix ///."@en ;
-    skos:scopeNote
-        "The examples below use English addresses. This property does not assert a coordinate conversion, a navigation instruction, or an address for an entire bioregion."@en ;
-    dcterms:source <https://what3words.com/about> ;
-    rdfs:seeAlso <https://what3words.com/terms> ;
-    rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> .
 
-# 1. Seattle, United States: Pacific Northwest Coastal Forests (NA15).
+###  https://www.in2use.com/one_earth_bioregions/Great_Britain_Ireland_And_Faroe_Islands
+oeb:Great_Britain_Ireland_And_Faroe_Islands oeb:has_region_part oeb:Wakehurst_Westwood_Viewpoint_Location .
 
-oeb:West_Green_Lake_Beach_Meeting_Location
-    a owl:NamedIndividual, oeb:Geographical_Region ;
-    rdfs:label "West Green Lake Beach Meeting Location"@en ;
-    rdfs:comment
-        "The small addressed area at the bench and cove north of the lifeguard area at West Green Lake Beach, Seattle, identified as a meeting location by Seattle Triathlon Group."@en ;
-    oeb:what3words_address "reef.puppy.handle"^^xsd:string ;
-    oeb:is_region_part_of oeb:Pacific_Northwest_Coastal_Forests ;
-    rdfs:seeAlso <https://what3words.com/reef.puppy.handle> ;
-    dcterms:source <https://www.seattletri.org/events/series/glows> ;
-    rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> .
 
-oeb:Pacific_Northwest_Coastal_Forests
-    oeb:has_region_part oeb:West_Green_Lake_Beach_Meeting_Location .
+###  https://www.in2use.com/one_earth_bioregions/North_Head_Sanctuary_Visitor_Centre_Location
+oeb:North_Head_Sanctuary_Visitor_Centre_Location rdf:type owl:NamedIndividual ,
+                                                          oeb:Geographical_Region ;
+                                                 oeb:is_region_part_of oeb:East_Australian_Temperate_Forests_And_Mountain_Shrublands ;
+                                                 oeb:what3words_address "dent.churn.flips" ;
+                                                 dcterms:source <https://www.harbourtrust.gov.au/news/harbour-trust-launches-what3words-for-accurate-location-reporting-and-emergency-response/> ;
+                                                 rdfs:comment "The small addressed area at North Head Sanctuary Visitor Centre in Manly, Sydney, identified in the Harbour Trust's public what3words announcement."@en ;
+                                                 rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> ;
+                                                 rdfs:label "North Head Sanctuary Visitor Centre Location"@en ;
+                                                 rdfs:seeAlso <https://what3words.com/dent.churn.flips> .
 
-# 2. Wakehurst, England: Great Britain Ireland And Faroe Islands (PA9).
 
-oeb:Wakehurst_Westwood_Viewpoint_Location
-    a owl:NamedIndividual, oeb:Geographical_Region ;
-    rdfs:label "Wakehurst Westwood Viewpoint Location"@en ;
-    rdfs:comment
-        "The small addressed area at Westwood Viewpoint in Wakehurst, Sussex, identified in Royal Botanic Gardens, Kew's guide to places to sit in the gardens."@en ;
-    oeb:what3words_address "nimbly.rephrase.bongo"^^xsd:string ;
-    oeb:is_region_part_of oeb:Great_Britain_Ireland_And_Faroe_Islands ;
-    rdfs:seeAlso <https://what3words.com/nimbly.rephrase.bongo> ;
-    dcterms:source <https://www.kew.org/read-and-watch/wakehurst-best-benches> ;
-    rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> .
+###  https://www.in2use.com/one_earth_bioregions/Pacific_Northwest_Coastal_Forests
+oeb:Pacific_Northwest_Coastal_Forests oeb:has_region_part oeb:West_Green_Lake_Beach_Meeting_Location .
 
-oeb:Great_Britain_Ireland_And_Faroe_Islands
-    oeb:has_region_part oeb:Wakehurst_Westwood_Viewpoint_Location .
 
-# 3. Cape Town, South Africa: South African Cape Shrublands And Mountain
-#    Forests (AT2).
+###  https://www.in2use.com/one_earth_bioregions/South_African_Cape_Shrublands_And_Mountain_Forests
+oeb:South_African_Cape_Shrublands_And_Mountain_Forests oeb:has_region_part oeb:Table_Mountain_Aerial_Cableway_Entrance_Location .
 
-oeb:Table_Mountain_Aerial_Cableway_Entrance_Location
-    a owl:NamedIndividual, oeb:Geographical_Region ;
-    rdfs:label "Table Mountain Aerial Cableway Entrance Location"@en ;
-    rdfs:comment
-        "The small addressed area at the entrance to the Table Mountain Aerial Cableway in Cape Town, identified in ER24's public announcement of its what3words partnership."@en ;
-    oeb:what3words_address "nerds.sponsored.oats"^^xsd:string ;
-    oeb:is_region_part_of oeb:South_African_Cape_Shrublands_And_Mountain_Forests ;
-    rdfs:seeAlso <https://map.what3words.com/nerds.sponsored.oats> ;
-    dcterms:source <https://www.er24.co.za/en/corporate/corporate-services/customised-contact-center/what3words/three-words-that-could-save-your-life.html> ;
-    rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> .
 
-oeb:South_African_Cape_Shrublands_And_Mountain_Forests
-    oeb:has_region_part oeb:Table_Mountain_Aerial_Cableway_Entrance_Location .
+###  https://www.in2use.com/one_earth_bioregions/Table_Mountain_Aerial_Cableway_Entrance_Location
+oeb:Table_Mountain_Aerial_Cableway_Entrance_Location rdf:type owl:NamedIndividual ,
+                                                              oeb:Geographical_Region ;
+                                                     oeb:is_region_part_of oeb:South_African_Cape_Shrublands_And_Mountain_Forests ;
+                                                     oeb:what3words_address "nerds.sponsored.oats" ;
+                                                     dcterms:source <https://www.er24.co.za/en/corporate/corporate-services/customised-contact-center/what3words/three-words-that-could-save-your-life.html> ;
+                                                     rdfs:comment "The small addressed area at the entrance to the Table Mountain Aerial Cableway in Cape Town, identified in ER24's public announcement of its what3words partnership."@en ;
+                                                     rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> ;
+                                                     rdfs:label "Table Mountain Aerial Cableway Entrance Location"@en ;
+                                                     rdfs:seeAlso <https://map.what3words.com/nerds.sponsored.oats> .
 
-# 4. Sydney, Australia: East Australian Temperate Forests And Mountain
-#    Shrublands (AU3).
 
-oeb:North_Head_Sanctuary_Visitor_Centre_Location
-    a owl:NamedIndividual, oeb:Geographical_Region ;
-    rdfs:label "North Head Sanctuary Visitor Centre Location"@en ;
-    rdfs:comment
-        "The small addressed area at North Head Sanctuary Visitor Centre in Manly, Sydney, identified in the Harbour Trust's public what3words announcement."@en ;
-    oeb:what3words_address "dent.churn.flips"^^xsd:string ;
-    oeb:is_region_part_of oeb:East_Australian_Temperate_Forests_And_Mountain_Shrublands ;
-    rdfs:seeAlso <https://what3words.com/dent.churn.flips> ;
-    dcterms:source <https://www.harbourtrust.gov.au/news/harbour-trust-launches-what3words-for-accurate-location-reporting-and-emergency-response/> ;
-    rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> .
+###  https://www.in2use.com/one_earth_bioregions/Wakehurst_Westwood_Viewpoint_Location
+oeb:Wakehurst_Westwood_Viewpoint_Location rdf:type owl:NamedIndividual ,
+                                                   oeb:Geographical_Region ;
+                                          oeb:is_region_part_of oeb:Great_Britain_Ireland_And_Faroe_Islands ;
+                                          oeb:what3words_address "nimbly.rephrase.bongo" ;
+                                          dcterms:source <https://www.kew.org/read-and-watch/wakehurst-best-benches> ;
+                                          rdfs:comment "The small addressed area at Westwood Viewpoint in Wakehurst, Sussex, identified in Royal Botanic Gardens, Kew's guide to places to sit in the gardens."@en ;
+                                          rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> ;
+                                          rdfs:label "Wakehurst Westwood Viewpoint Location"@en ;
+                                          rdfs:seeAlso <https://what3words.com/nimbly.rephrase.bongo> .
 
-oeb:East_Australian_Temperate_Forests_And_Mountain_Shrublands
-    oeb:has_region_part oeb:North_Head_Sanctuary_Visitor_Centre_Location .
+
+###  https://www.in2use.com/one_earth_bioregions/West_Green_Lake_Beach_Meeting_Location
+oeb:West_Green_Lake_Beach_Meeting_Location rdf:type owl:NamedIndividual ,
+                                                    oeb:Geographical_Region ;
+                                           oeb:is_region_part_of oeb:Pacific_Northwest_Coastal_Forests ;
+                                           oeb:what3words_address "reef.puppy.handle" ;
+                                           dcterms:source <https://www.seattletri.org/events/series/glows> ;
+                                           rdfs:comment "The small addressed area at the bench and cove north of the lifeguard area at West Green Lake Beach, Seattle, identified as a meeting location by Seattle Triathlon Group."@en ;
+                                           rdfs:isDefinedBy <https://www.in2use.com/one_earth_bioregions> ;
+                                           rdfs:label "West Green Lake Beach Meeting Location"@en ;
+                                           rdfs:seeAlso <https://what3words.com/reef.puppy.handle> .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
