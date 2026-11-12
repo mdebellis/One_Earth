@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://www.in2use.com/one_earth_bioregions" uri="one_earth_bioregions.ttl"/>
+  <uri name="https://www.in2use.com/one_earth_solutions" uri="one_earth_solutions.ttl"/>
+</catalog>
