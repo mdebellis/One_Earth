@@ -1,18 +1,7 @@
-# One Earth Solutions — draft 0.2.2
+# One Earth Solutions — draft 0.2
 
-This ontology contains the Solutions process model and directly imports the three files in the sibling Bioregions directory. It is the entry point for the complete model in Protégé. There are no active integration-wrapper ontologies.
+There are currently 3 ontologies in the one_earth_bioregions file. The file 'one_earth_bioregions.ttl' has most of the TBox definitions for the bioregions as well as the ABox data about the regions. The file one_earth_geosparql adds the TBox definitions for geoSPARQL and all the data available on the One Earth site with lattitude and longitude coordinates associated with regions. 
 
-## Install this complete package
-
-This ZIP supplies every active ontology and supporting file. It replaces the earlier incremental update ZIPs and assumes an empty active `ontologies` directory. Archive is kept separately and is not used to resolve imports.
-
-1. Close Protégé and move your previous active files and folders into Archive, preserving the relative paths as you planned.
-2. Extract this ZIP **directly into the existing `ontologies` directory**. Its top level contains exactly `one_earth_bioregions` and `one_earth_solutions`—no extra outer `ontologies` or package folder. If Windows extracts into a folder named after the ZIP, move the two directories inside it into your existing `ontologies` directory.
-3. Keep the two directories beside each other. No files from an earlier package need to be copied back.
-4. Open `one_earth_solutions/one_earth_solutions.ttl` in Protégé. Its three direct imports load the base Bioregions, GeoSPARQL, and what3words files through the included local catalogs.
-5. Run Pellet as usual, then review and publish the complete directory replacement using GitHub Desktop.
-
-The catalogs allow local loading before publication. Raw GitHub imports use the final active directory paths; remote users receive the new versions after you commit and push. All ontology and entity IRIs remain as in the agreed direct-import model.
 
 ## Imports and local use
 
