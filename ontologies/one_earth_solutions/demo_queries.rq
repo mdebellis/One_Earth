@@ -56,3 +56,25 @@ WHERE {
   ?activity oes:is_illustrative_example true ; rdfs:label ?label ;
             a/rdfs:subClassOf* oes:Nature_Conservation_Activity .
 }
+
+# 6. Two example activities, their locations and target bioregion, and the target’s links through its subrealm to its realm
+PREFIX oes: <https://www.in2use.com/one_earth_solutions/>
+PREFIX oeb: <https://www.in2use.com/one_earth_bioregions/>
+CONSTRUCT {
+  ?activity oes:has_location ?location ;
+            oes:has_target ?target .
+
+  ?target oeb:is_direct_region_part_of ?subrealm .
+  ?subrealm oeb:is_direct_region_part_of ?realm .
+}
+WHERE {
+  ?activity oes:is_illustrative_example true ;
+            oes:has_location ?location ;
+            oes:has_target ?target .
+
+  ?target a oeb:Bioregion ;
+          oeb:is_direct_region_part_of ?subrealm .
+
+  ?subrealm oeb:is_direct_region_part_of ?realm .
+  ?realm a oeb:Realm .
+}
