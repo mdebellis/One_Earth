@@ -1,6 +1,6 @@
 # One Earth Solutions — draft 0.2
 
-There are currently 3 ontologies in the `one_earth_bioregions` file. The file `one_earth_bioregions.ttl` has most of the TBox definitions for the bioregions as well as the ABox data about the regions. The file `one_earth_geosparql` adds the TBox definitions for geoSPARQL and all the data available on the One Earth site with lattitude and longitude coordinates associated with regions.The file  `one_earth_what3words_example.ttl` has sample data from `what3words.com`.
+There are currently 3 ontologies in the `one_earth_bioregions` directory. The file `one_earth_bioregions.ttl` has most of the TBox definitions for the bioregions as well as the ABox data about the regions. The file `one_earth_geosparql` adds the TBox definitions for geoSPARQL and all the data available on the OneEarth site with lattitude and longitude coordinates associated with regions. The file `one_earth_what3words_example.ttl` has sample data from `what3words.com`.
 
 
 ## Imports and local use
