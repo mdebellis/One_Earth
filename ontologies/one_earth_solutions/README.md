@@ -2,34 +2,11 @@
 
 There are currently 3 ontologies in the `one_earth_bioregions` directory. The file `one_earth_bioregions.ttl` has most of the TBox definitions for the bioregions as well as the ABox data about the regions. The file `one_earth_geosparql` adds the TBox definitions for geoSPARQL and all the data available on the OneEarth site with lattitude and longitude coordinates associated with regions. The file `one_earth_what3words_example.ttl` has sample data from `what3words.com`.
 
+There is one ontology file in the solutions directory: `one_earth_solutions.ttl`. The other files have test and meta data. 
 
-## Imports and local use
+The file directly under the ontologies directory: `one_earth_integrated`. That has all the four ontology files and is the one to load into Protege, AllegroGraph, or other tools. 
 
-The three direct imports use raw GitHub URLs for:
-
-- `../one_earth_bioregions/one_earth_bioregions.ttl`
-- `../one_earth_bioregions/one_earth_geosparql.ttl`
-- `../one_earth_bioregions/one_earth_what3words_examples.ttl`
-
-Keep both directories under `ontologies`, retain their local `catalog-v001.xml` files, and open `one_earth_solutions.ttl`. The catalogs resolve the raw import URLs to those same local files. They contain no Archive or wrapper mappings. There is no Bioregions copy in this Solutions directory and no root-level catalog is required for this layout.
-
-The Solutions ontology IRI remains `https://www.in2use.com/one_earth_solutions`; all existing entity IRIs remain unchanged. Version 0.2.2 changes the imports and their documentation; the process class model is unchanged from 0.2.0. Geometry and what3words are now included when opening Solutions through its imports.
-
-## AllegroGraph loading convention
-
-For ordinary RDF loading, explicitly load each required file into the same repository. The `owl:imports` triples record dependencies; they do not themselves fetch the imported files in the normal loading workflow.
-
-Use this order for clarity: base Bioregions, GeoSPARQL, what3words, then Solutions. This is an organizational convention, not an RDF requirement: referenced IRIs can be stored before their definitions are loaded. Run the Materializer after all required files are loaded. If you add further axioms or data later, materialize again as appropriate. GeoSPARQL indexing is a separate operation.
-
-The raw import document URLs and the ontology/entity IRIs serve different purposes. Matching entity IRIs allow the loaded triples to connect; AllegroGraph does not require an ontology header to exist before accepting those references. Protégé's catalog does not configure AllegroGraph.
-
-Supporting files `demo_queries.rq`, `source_class_mapping.csv`, and `LICENSE` are unchanged. `validation.json` records the model and direct-import checks; `release_validation.json` records validation of this complete package after extraction into an empty directory.
-
-## What changed from 0.1
-
-Version 0.1 represented the framework as standalone category individuals. **Replace that draft; do not merge the two versions.** Some category IRIs now identify classes, and noun headings have action-oriented replacements. Loading both versions would retain obsolete categories and unintended class/individual punning.
-
-Version 0.2 contains:
+# Version 0.2 contains:
 
 - Three pillar classes, 12 subpillar classes, and 76 solution-pathway classes under `Climate_Solution`, a subclass of `prov:Activity` and therefore SULO `Process`.
 - Seven intersectional themes and seven levers of change as controlled individuals. These describe concerns and enabling mechanisms, rather than occurrences of activities.
