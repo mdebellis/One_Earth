@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="https://www.in2use.com/one_earth_what3words_examples" uri="one_earth_bioregions/one_earth_what3words_examples.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://www.in2use.com/one_earth_geosparql" uri="one_earth_bioregions/one_earth_geosparql.ttl"/>
+    <uri id="User Entered Import Resolution" name="https://www.in2use.com/one_earth_bioregions" uri="one_earth_bioregions/one_earth_bioregions.ttl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public"/>
+</catalog>
