@@ -1,0 +1,117 @@
+# Two documented One Earth projects for the existing One Earth ontologies.
+# Source pages reviewed: 2026-11-13.
+#
+# Load this file into the EXISTING AllegroGraph repository, or append its entire
+# contents (including these prefix declarations) to either existing Turtle file.
+# This is an additive data file: it has no owl:Ontology header or owl:imports.
+# It reuses existing classes, properties, themes, levers, and region individuals.
+#
+# Existing region paths, already present in the integrated ontology:
+#   Andean Mountain Forests And Valleys (NT11)
+#     -> Andes And Pacific Coast -> Southern America
+#   Greater Deccan Sri Lankan Forests And Drylands (IM8)
+#     -> Indian Subcontinent -> Indomalaya
+# Each arrow above is oeb:is_direct_region_part_of, not a new project property.
+# Existing geo:hasGeometry / geo:asWKT data remain available through the regions.
+#
+# Modeling notes:
+# - Each project is represented as a solution activity, using the existing model.
+# - One Earth's project bioregion metadata supplies the regional location link;
+#   it is not an exact project footprint or an exhaustive list of project sites.
+# - Classification and theme/lever mappings are Common Action interpretations
+#   of the cited descriptions, not RDF assertions published by One Earth.
+# - Published partners use prov:wasAssociatedWith. An implementing organization
+#   uses oes:has_responsible_agent; a partner is not assumed to be an implementer.
+# - Source descriptions include plans and historical material. These statements
+#   do not assert current operation, project completion, or achieved impacts.
+# - false for is_illustrative_example means non-fictional, not independently
+#   verified, currently active, or proven effective.
+# - Stable named IRIs and no blank nodes make repeated loading RDF-idempotent
+#   when loading into the same graph.
+
+@prefix oes: <https://www.in2use.com/one_earth_solutions/> .
+@prefix oeb: <https://www.in2use.com/one_earth_bioregions/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# ---------------------------------------------------------------------------
+# 1. Forest restoration and conservation in the Andes
+# ---------------------------------------------------------------------------
+
+oes:Andean_Mountain_Forest_Restoration_Project
+    a owl:NamedIndividual, oes:Reforestation, oes:Land_Conservation ;
+    rdfs:label "Andean Mountain Forest Restoration Project"@en ;
+    dcterms:title "Scaling Mountain Forest Restoration to Increase Water Security for Communities in the Andean Region"@en ;
+    skos:definition "An Accion Andina project supporting native-tree planting and forest protection to sustain water supplies for Andean communities."@en ;
+    oes:has_location oeb:Andean_Mountain_Forests_And_Valleys ;
+    oes:has_target oeb:Andean_Mountain_Forests_And_Valleys ;
+    oes:has_responsible_agent oes:ECOAN ;
+    prov:wasAssociatedWith oes:Global_Forest_Generation ;
+    oes:has_intersectional_theme oes:Water_Stewardship ;
+    oes:has_lever_of_change oes:Community_Action ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/projects/scaling-mountain-forest-restoration-to-increase-water-security-for-communities-in-the-andean-region/> ;
+    rdfs:seeAlso <https://www.oneearth.org/projects/scaling-mountain-forest-restoration-to-increase-water-security-for-communities-in-the-andean-region/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> ;
+    rdfs:comment "The source identifies ECOAN as the main implementing agency and Global Forest Generation as the partner. NT11 is the source-listed bioregion; the narrative describes work across several Andean countries."@en ;
+    skos:editorialNote "Reviewed 2026-11-13. The page includes objectives for the 2021-2022 restoration season. No current status, completed planting totals, or achieved outcomes are asserted here. Reforestation, land conservation, and water stewardship are source tags; Community Action is a mapping from the description of work with local and Indigenous communities."@en .
+
+oes:ECOAN
+    a owl:NamedIndividual, prov:Organization ;
+    rdfs:label "ECOAN"@en ;
+    skos:definition "The organization identified by One Earth as the principal implementing agency for Accion Andina's Andean forest restoration work."@en ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/projects/scaling-mountain-forest-restoration-to-increase-water-security-for-communities-in-the-andean-region/> ;
+    rdfs:seeAlso <https://www.oneearth.org/projects/scaling-mountain-forest-restoration-to-increase-water-security-for-communities-in-the-andean-region/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> .
+
+oes:Global_Forest_Generation
+    a owl:NamedIndividual, prov:Organization ;
+    rdfs:label "Global Forest Generation"@en ;
+    skos:definition "An organization working with local leaders and communities to restore forest ecosystems and sustain their stewardship."@en ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/partner/global-forest-generation/> ;
+    rdfs:seeAlso <https://www.oneearth.org/partner/global-forest-generation/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> .
+
+# ---------------------------------------------------------------------------
+# 2. Farmer-to-farmer agroecology training through Amrita Bhoomi
+# ---------------------------------------------------------------------------
+
+oes:Amrita_Bhoomi_Farmer_Training_Project
+    a owl:NamedIndividual, oes:Regenerative_Agriculture_Activity ;
+    rdfs:label "Amrita Bhoomi Farmer Training Project"@en ;
+    dcterms:title "Promoting Farmer-to-Farmer Training across South Asia through the Amrita Bhoomi School"@en ;
+    skos:definition "A project supporting women farmers in sharing agroecological knowledge, seeds, and practical skills through exchanges and training in South Asia."@en ;
+    oes:has_location oeb:Greater_Deccan_Sri_Lankan_Forests_And_Drylands ;
+    oes:has_responsible_agent oes:Amrita_Bhoomi ;
+    prov:wasAssociatedWith oes:Agroecology_Fund ;
+    oes:has_intersectional_theme oes:Gender_Equity, oes:Youth_Leadership ;
+    oes:has_lever_of_change oes:Education_And_Culture, oes:Community_Action ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/projects/promoting-farmer-to-farmer-training-across-south-asia-through-the-amrita-bhoomi-school/> ;
+    rdfs:seeAlso <https://www.oneearth.org/projects/promoting-farmer-to-farmer-training-across-south-asia-through-the-amrita-bhoomi-school/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> ;
+    rdfs:comment "One Earth lists Amrita Bhoomi as the organization, Agroecology Fund as the partner, and IM8 as the bioregion. The narrative describes intended exchanges across South Asia, so the regional location is not an assertion that all activities occur within IM8."@en ;
+    skos:editorialNote "Reviewed 2026-11-13. The page conflicts: narrative 'Project on Hold'; table 'active' and 'Ongoing'. Current status is unasserted. Women maps to Gender Equity; training and farmer exchanges to Education And Culture and Community Action. Classification uses the source's Regenerative Agriculture pillar."@en .
+
+oes:Amrita_Bhoomi
+    a owl:NamedIndividual, prov:Organization ;
+    rdfs:label "Amrita Bhoomi"@en ;
+    skos:definition "A farmer-led agroecology school in India that supports knowledge exchange and regenerative farming practices."@en ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/projects/promoting-farmer-to-farmer-training-across-south-asia-through-the-amrita-bhoomi-school/> ;
+    rdfs:seeAlso <https://www.amritabhoomi.org/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> .
+
+oes:Agroecology_Fund
+    a owl:NamedIndividual, prov:Organization ;
+    rdfs:label "Agroecology Fund"@en ;
+    skos:definition "A collaborative funding organization supporting agroecological practices, farmer organizations, and related policy work."@en ;
+    oes:is_illustrative_example false ;
+    dcterms:source <https://www.oneearth.org/partner/agroecology-fund/> ;
+    rdfs:seeAlso <https://www.oneearth.org/partner/agroecology-fund/> ;
+    rdfs:isDefinedBy <https://www.in2use.com/one_earth_solutions> .
